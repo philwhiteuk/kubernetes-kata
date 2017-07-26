@@ -1,0 +1,35 @@
+doctype html
+html(lang="en")
+  head
+    title= pageTitle
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel="stylesheet", integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u", crossorigin="anonymous")
+    style(type='text/css').
+      * {
+        font-size: 1.1em;
+      }
+  body
+    .clear
+    .container
+      .row(style='margin-top:50px;')
+        .col-md-12.bg-info(style='font-size:1.5em;padding:20px 50px;')
+          h3 Environment Variables:
+          p#server Mining Exchange Server
+          p ${TEAM_NAME} => YOUR_TEAM_NAME
+      .row(style='margin-top:50px;')
+        .col-md-12
+          table.table.table-striped.table-bordered
+            thead
+              tr
+                th Team Name
+                th Score
+                th % Efficiency
+            tbody
+              each team in teams
+                tr
+                  td=team.team
+                  td=team.score
+                  td=team.efficiency
+    script(type='text/javascript').
+      var placeholder = document.getElementById('server');
+      placeholder.textContent = '${EXCHANGE} => '+window.location;
+      setTimeout(function(){ window.location=window.location; }, 7000)

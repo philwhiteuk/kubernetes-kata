@@ -1,0 +1,13 @@
+mining_exchange:
+  build: .
+  environment:
+    - DB_HOST=redis://redis.localhost:6379
+    - PORT=3000
+  ports:
+    - "8080:3000"
+  links:
+    - "redis:redis.localhost"
+redis:
+  image: redis:latest
+  expose:
+    - "6379"

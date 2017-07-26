@@ -1,0 +1,7 @@
+mining_rig:
+  build: .
+  environment:
+    - EXCHANGE=http://192.168.0.12:8080
+    - TEAM_NAME=philcool
+  ports:
+    - "80:80"
